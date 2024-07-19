@@ -1,9 +1,10 @@
-import { useClients } from "./context/clientsContext";
-import { useLoans } from "./context/loansContext";
+import { useClients } from "../context/clientsContext";
+import { useLoans } from "../context/loansContext";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 //importamos la imagen
-import loan from './img/loan.png'
-import customer from './img/customer.png'
+import loan from '../img/loan.png'
+import customer from '../img/customer.png'
 
 export default function Dashboard() {
     const { clients, getClientsList } = useClients();
@@ -22,6 +23,7 @@ export default function Dashboard() {
                 <div className=" bg-slate-200 hover:scale-110 cursor-pointer rounded-md w-1/5 flex flex-col justify-center items-center">
                     <h2 className=" text-2xl font-bold">Clientes</h2>
                     <img src={customer} alt="customer" className="w-1/2"/>
+                    <Link to="/clients">Ver clientes</Link>
                 </div>
                 <div className=" bg-slate-200 hover:scale-110 cursor-pointer rounded-md w-1/5 flex flex-col justify-center items-center">
                     <h2 className=" text-2xl font-bold">Prestamos</h2>

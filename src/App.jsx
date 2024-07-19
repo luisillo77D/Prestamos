@@ -1,7 +1,8 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import { ClientsProvider } from './context/clientsContext.jsx'
-import Dashboard from './dashboard.jsx'
+import Dashboard from './pages/dashboard.jsx'
 import { LoansProvider } from './context/loansContext.jsx';
+import ClientsPanel from './pages/clientsPanel.jsx';
 
 export default function App() {
     return (
@@ -10,6 +11,7 @@ export default function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Dashboard />} />
+                    <Route path="/clients" element={<ClientsPanel />} />
                 </Routes>
             </BrowserRouter>
             </LoansProvider>
