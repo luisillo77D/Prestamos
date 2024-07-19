@@ -1,14 +1,34 @@
 import { DataGrid } from '@mui/x-data-grid';
-import Paper from '@mui/material/Paper';
-
+import {Paper} from '@mui/material';
+import BotonesClientes from './botonesClientes';
+// eslint-disable-next-line react/prop-types
 export default function TableClients({ clients }) {
+    //handleEdit y handleDelete
+    const handleEdit = (id) => {
+        console.log('Editando cliente con id:', id);
+    }
+
+    const handleDelete = (id) => {
+        console.log('Eliminando cliente con id:', id);
+    }
+
     const columns = [
         { field: 'name', headerName: 'Nombre', width: 150 },
         { field: 'lastname', headerName: 'Apellido', width: 150 },
         { field: 'address', headerName: 'Direccion', width: 200 },
         { field: 'phone', headerName: 'Telefono', width: 150 },
+        {
+            field: 'actions',
+            headerName: 'Acciones',
+            width: 400,
+            renderCell: (params) => (
+                <BotonesClientes id={params.row.id}
+                onEdit={handleEdit}
+                onDelete={handleDelete} />
+            ),
+        },
     ];
-
+// eslint-disable-next-line react/prop-types
     const rows = clients.map((client) => ({
         id: client._id,
         name: client.name,
