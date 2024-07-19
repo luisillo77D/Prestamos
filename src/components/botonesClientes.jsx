@@ -23,7 +23,7 @@ export default function BotonesClientes({ id, onEdit, onDelete })  {
             </Button>
             <Button
                 variant="contained"
-                color="secondary"
+                color="error"
                 onClick={() => onDelete(id)}
             >
                 Eliminar

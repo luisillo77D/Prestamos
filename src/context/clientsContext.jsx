@@ -37,6 +37,7 @@ export const ClientsProvider = ({ children }) => {
         try {
             const response = await createClient(client);
             setClients([...clients, response.data]);
+            console.log(response.data);
         } catch (error) {
             console.error(error);
         }

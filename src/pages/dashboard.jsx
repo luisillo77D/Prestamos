@@ -7,7 +7,7 @@ import loan from '../img/loan.png'
 import customer from '../img/customer.png'
 
 export default function Dashboard() {
-    const { clients, getClientsList } = useClients();
+    const { getClientsList } = useClients();
     const { loans, getLoansList } = useLoans();
     useEffect(() => {
         getClientsList();

@@ -4,7 +4,7 @@ export const getClients = async () => axios.get(`/clients`);
 
 export const getClient = async (id) => axios.get(`/clients/${id}`);
 
-export const createClient = async (client) => axios.post(`/clients`, client);
+export const createClient = async (client) => axios.post(`/clients/register`, client);
 
 export const updateClient = async (id, client) => axios.put(`/clients/${id}`, client);
 
