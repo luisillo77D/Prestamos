@@ -1,6 +1,7 @@
 import { DataGrid } from '@mui/x-data-grid';
 import {Paper} from '@mui/material';
 import BotonesClientes from './botonesClientes';
+import BotonesClientsLoans from './botonesClientsLoans';
 // eslint-disable-next-line react/prop-types
 export default function TableClients({ clients }) {
     //handleEdit y handleDelete
@@ -20,13 +21,22 @@ export default function TableClients({ clients }) {
         {
             field: 'actions',
             headerName: 'Acciones',
-            width: 400,
+            width: 200,
             renderCell: (params) => (
                 <BotonesClientes id={params.row.id}
                 onEdit={handleEdit}
                 onDelete={handleDelete} />
             ),
         },
+        {
+            field: 'actionsLoans',
+            headerName: 'Prestamos',
+            width: 200,
+            renderCell: (params) => (
+                <BotonesClientsLoans id={params.row.id}
+                 />
+            ),
+        }
     ];
 // eslint-disable-next-line react/prop-types
     const rows = clients.map((client) => ({

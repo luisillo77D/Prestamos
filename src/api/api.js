@@ -12,7 +12,7 @@ export const getLoans = async () => axios.get(`/loans`);
 
 export const getLoan = async (id) => axios.get(`/loans/${id}`);
 
-export const getLoansByClient = async (clientId) => axios.get(`/clients/${clientId}/loans`);
+export const getLoansByClient = async (clientId) => axios.get(`/loans/${clientId}/loans`);
 
 export const getLoanPayments = async (loanId) => axios.get(`/loans/${loanId}/payments`);
 

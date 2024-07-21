@@ -17,7 +17,6 @@ export const ClientsProvider = ({ children }) => {
     const getClientsList = async () => {
         try {
             const response = await getClients();
-            console.log(response.data);
             setClients(response.data);
         }catch (error) {
             console.error(error);

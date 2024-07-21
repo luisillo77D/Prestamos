@@ -7,14 +7,6 @@ export default function BotonesClientes({ id, onEdit, onDelete })  {
         <div>
             <Button
                 variant="contained"
-                //asignar la propiedad color a green
-                color="success"
-                style={{ marginRight: '10px' }}
-            >
-                Nuevo Prestamo
-            </Button>
-            <Button
-                variant="contained"
                 color="primary"
                 onClick={() => onEdit(id)}
                 style={{ marginRight: '10px' }}

@@ -17,7 +17,6 @@ export const LoansProvider = ({ children }) => {
     const getLoansList = async () => {
         try {
             const response = await getLoans();
-            console.log(response.data);
             setLoans(response.data);
         }catch (error) {
             console.error(error);
@@ -54,6 +53,7 @@ export const LoansProvider = ({ children }) => {
     const getLoansByClientId = async (clientId) => {
         try {
             const response = await getLoansByClient(clientId);
+            setLoans(response.data);
             return response.data;
         } catch (error) {
             console.error(error);
