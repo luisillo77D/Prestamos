@@ -25,10 +25,10 @@ export default function Dashboard() {
                     <img src={customer} alt="customer" className="w-1/2"/>
                     <Link to="/clients">Ver clientes</Link>
                 </div>
-                <div className=" bg-slate-200 hover:scale-110 cursor-pointer rounded-md w-1/5 flex flex-col justify-center items-center">
+                <Link to="/loans" className=" bg-slate-200 hover:scale-110 cursor-pointer rounded-md w-1/5 flex flex-col justify-center items-center">
                     <h2 className=" text-2xl font-bold">Prestamos</h2>
                     <img src={loan} alt="loan" className="w-1/2"/>
-                </div>
+                </Link>
             </div>
             <div>
                 <h2>mostrar los prestamos que estan en su ultima semana</h2>
