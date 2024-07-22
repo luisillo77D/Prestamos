@@ -1,7 +1,16 @@
 import { DataGrid } from '@mui/x-data-grid';
 import {Paper} from '@mui/material';
+import BotonesLoans from '../components/botonesLoans';
 
 export default function TableLoans({ loans }) {
+
+    const handlePaid = (id) => {
+        console.log('Pagando prestamo con id:', id);
+    }
+
+    const handleView = (id) => {
+        console.log('Viendo prestamo con id:', id);
+    }
     const columns = [
         { field: 'client', headerName: 'Cliente', width: 150 },
         { field: 'amount', headerName: 'Monto', width: 150 },
@@ -11,6 +20,16 @@ export default function TableLoans({ loans }) {
         { field: 'weeklyMount', headerName: 'Pago sem', width: 150 },
         { field: 'startDate', headerName: 'Fecha inicio', width: 150 },
         { field: 'endDate', headerName: 'Fecha fin', width: 150 },
+        {
+            field: 'actions',
+            headerName: 'Acciones',
+            width: 200,
+            renderCell: (params) => (
+                <BotonesLoans id={params.row.id}
+                onPaid={handlePaid}
+                onView={handleView} />
+            ),
+        },
     ];
 
     const rows = loans.map((loan) => ({
