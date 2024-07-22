@@ -35,6 +35,7 @@ export const LoansProvider = ({ children }) => {
     const addLoan = async (loan) => {
         try {
             const response = await createLoan(loan);
+            console.log(response.data);
             setLoans([...loans, response.data]);
         } catch (error) {
             console.error(error);

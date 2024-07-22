@@ -5,6 +5,7 @@ import { LoansProvider } from './context/loansContext.jsx';
 import ClientsPanel from './pages/clientsPanel.jsx';
 import NewClient from './pages/newClient.jsx';
 import LoansPanel from './pages/loansPanel.jsx';
+import NewLoan from './pages/newLoan.jsx';
 
 export default function App() {
     return (
@@ -16,6 +17,7 @@ export default function App() {
                     <Route path="/clients" element={<ClientsPanel />} />
                     <Route path='/newclient' element={<NewClient/>}/>
                     <Route path='/loans' element={<LoansPanel/>}/>
+                    <Route path='/newloan' element={<NewLoan/>}/>
                 </Routes>
             </BrowserRouter>
             </LoansProvider>

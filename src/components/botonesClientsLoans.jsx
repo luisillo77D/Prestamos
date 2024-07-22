@@ -22,7 +22,7 @@ export default function BotonesClientsLoans({ id }) {
             {hasActiveLoan ? (
                 <Button
                     variant="contained"
-                    color="primary"
+                    color="success"
                     // onClick={() => onViewActiveLoan(id)}
                     style={{ marginRight: '10px' }}
                 >
@@ -31,7 +31,7 @@ export default function BotonesClientsLoans({ id }) {
             ) : (
                 <Button
                     variant="contained"
-                    color="error"
+                    color="success"
                     // onClick={() => onNewLoan(id)}
                 >
                     Nuevo Préstamo

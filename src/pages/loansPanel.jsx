@@ -2,9 +2,16 @@ import { useLoans } from "../context/loansContext";
 import TableLoans from "../components/tableLoans";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 export default function LoansPanel() {
-  const { loans } = useLoans();
+  const { loans,getLoansList } = useLoans();
   console.log(loans);
+
+  //hook para cargar los prestamos cuando no se encuentren en el contexto
+   useEffect(() => {
+       getLoansList();
+   }, []);
+  
   return (
     <div>
       <div className="flex justify-around items-center">
