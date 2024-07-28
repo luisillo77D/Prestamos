@@ -1,15 +1,19 @@
 import { DataGrid } from '@mui/x-data-grid';
 import {Paper} from '@mui/material';
 import BotonesLoans from '../components/botonesLoans';
+import {useNavigate} from 'react-router-dom';
 
+// eslint-disable-next-line react/prop-types
 export default function TableLoans({ loans }) {
+    const navigate = useNavigate();
 
     const handlePaid = (id) => {
         console.log('Pagando prestamo con id:', id);
     }
 
     const handleView = (id) => {
-        console.log('Viendo prestamo con id:', id);
+        //redireccionar a la pagina de pagos
+        navigate(`/payments/${id}`);
     }
     const columns = [
         { field: 'client', headerName: 'Cliente', width: 150 },
@@ -32,6 +36,7 @@ export default function TableLoans({ loans }) {
         },
     ];
 
+    // eslint-disable-next-line react/prop-types
     const rows = loans.map((loan) => ({
         id: loan._id,
         client: loan.client.name+' '+loan.client.lastname,

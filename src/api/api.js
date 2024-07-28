@@ -21,3 +21,7 @@ export const getLoanbyType = async (type) => axios.get(`/loans/${type}`);
 export const createLoan = async (loan) => axios.post(`/loans`, loan);
 
 export const updateLoan = async (id, loan) => axios.put(`/loans/${id}`, loan);
+
+export const getPaymentsbyLoan = async (loanId) => axios.get(`/weeklyPayments/${loanId}`);
+
+export const paidWeekly = async (loanId, body) => axios.post(`/weeklyPayments/${loanId}`, body);
