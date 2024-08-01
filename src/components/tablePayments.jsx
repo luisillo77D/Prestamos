@@ -1,5 +1,6 @@
 import { DataGrid } from '@mui/x-data-grid';
 import { Paper } from '@mui/material';
+import BotonesPagos from './botonesPagos';
 
 // eslint-disable-next-line react/prop-types
 export default function TablePayments({ payments }) {
@@ -8,30 +9,16 @@ export default function TablePayments({ payments }) {
         { field: 'dueDate', headerName: 'Fecha de pago', width: 150 },
         { field: 'amountDue', headerName: 'Pago sem', width: 150 },
         {
-            // mostramos un botón rojo si no se ha pagado o verde si ya se pagó
             field: 'actions',
             headerName: 'Acciones',
             width: 200,
             renderCell: (params) => (
-                <div>
-                    {params.row.paid ? (
-                        <button
-                            style={{ backgroundColor: 'green', color: 'white' }}
-                        >
-                            Pagado
-                        </button>
-                    ) : (
-                        <button
-                            style={{ backgroundColor: 'red', color: 'white' }}
-                        >
-                            Pagar
-                        </button>
-                    )}
-                </div>
+                <BotonesPagos isPaid={params.row.paid} />
             ),
         }
     ];
 
+    // eslint-disable-next-line react/prop-types
     const rows = payments.map((payment) => ({
         id: payment._id,
         weekNumber: payment.weekNumber,
