@@ -27,7 +27,7 @@ export default function NewLoan() {
   const [guarantor, setguarantor] = useState("");
   const [type, setType] = useState("");
   const [amount, setAmount] = useState("");
-  const [interest, setInterest] = useState("");
+  //const [interest, setInterest] = useState("");
   const [startDate, setDate] = useState(dayjs());
 
   const handleSubmit = async (e) => {
@@ -37,7 +37,6 @@ export default function NewLoan() {
       guarantor,
       type,
       amount,
-      interest,
       startDate,
     };
     console.log(newLoan);
@@ -51,9 +50,6 @@ export default function NewLoan() {
     switch (id) {
       case "amount":
         setAmount(value);
-        break;
-      case "interest":
-        setInterest(value);
         break;
       default:
         break;
@@ -87,16 +83,6 @@ export default function NewLoan() {
             <FilledInput
               id="amount"
               value={amount}
-              onChange={handleChange}
-              required
-            />
-          </FormControl>
-
-          <FormControl variant="filled" fullWidth margin="normal">
-            <InputLabel htmlFor="interest">Interés</InputLabel>
-            <FilledInput
-              id="interest"
-              value={interest}
               onChange={handleChange}
               required
             />

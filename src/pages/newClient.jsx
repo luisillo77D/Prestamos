@@ -22,12 +22,6 @@ export default function NewClient() {
       case "address":
         setAddress(value);
         break;
-      case "phone":
-        // Solo permite números y limita a 10 caracteres
-        if (/^\d{0,10}$/.test(value)) {
-          setPhone(value);
-        }
-        break;
       default:
         break;
     }
@@ -36,7 +30,15 @@ export default function NewClient() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newClient = { name, lastname, address, phone };
-    await addClient(newClient);
+    const res = await addClient(newClient);
+    //si se agrego el cliente mostrar mensaje de exito
+    if (res) {
+      alert("Cliente agregado con exito");
+    }
+    //alerta de error si no se agrego el cliente
+    if(!res){
+      alert("Error al agregar el cliente");
+    }
   };
 
   return (
@@ -69,16 +71,6 @@ export default function NewClient() {
             <FilledInput
               id="address"
               value={address}
-              onChange={handleChange}
-              required
-            />
-          </FormControl>
-
-          <FormControl variant="filled" fullWidth margin="normal">
-            <InputLabel htmlFor="phone">Telefono</InputLabel>
-            <FilledInput
-              id="phone"
-              value={phone}
               onChange={handleChange}
               required
             />
