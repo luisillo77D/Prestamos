@@ -3,11 +3,10 @@ import {Paper} from '@mui/material';
 
 export default function TableCuentas({ cuentas }) {
     const columns = [
-        { field: 'client', headerName: 'Cliente', width: 150 },
+        { field: 'client', headerName: 'Cliente', width: 250 },
         { field: 'type', headerName: 'Tipo', width: 150 },
         { field: 'amount', headerName: 'Monto', width: 150 },
-        { field: 'total', headerName: 'Total', width: 150 },
-        { field: 'guarantor', headerName: 'Aval', width: 150 },
+        { field: 'guarantor', headerName: 'Aval', width: 250 },
         { field: 'weeklyMount', headerName: 'Pago sem', width: 150 },
         { field: 'startDate', headerName: 'Fecha inicio', width: 150 },
         { field: 'endDate', headerName: 'Fecha fin', width: 150 },
@@ -19,7 +18,6 @@ export default function TableCuentas({ cuentas }) {
         client: cuenta.client.name+' '+cuenta.client.lastname,
         type: cuenta.loanType,
         amount: cuenta.amount,
-        total: cuenta.total,
         guarantor: cuenta.guarantor.name+' '+cuenta.guarantor.lastname,
         weeklyMount: cuenta.weeklyMount,
         //mostar fecha en formato dd/mm/yyyy

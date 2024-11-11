@@ -22,7 +22,6 @@ export default function NewLoan() {
     getClientsList();
   }, []);
 
-  console.log(clients);
   const [client, setClient] = useState("");
   const [guarantor, setguarantor] = useState("");
   const [type, setType] = useState("");
@@ -42,6 +41,13 @@ export default function NewLoan() {
     console.log(newLoan);
     const res = await addLoan(newLoan);
     console.log(res);
+
+    if (res) {
+      alert("Préstamo agregado con exito");
+    }
+    if (!res) {
+      alert("Error al agregar el préstamo");
+    }
   };
 
   const handleChange = (e) => {
