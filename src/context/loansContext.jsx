@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { getLoans, getLoan, createLoan, updateLoan,getLoanbyType, getLoansByClient, getLoanPayments } from "../api/api";
+import { getLoans, getLoan, createLoan, updateLoan,getLoanbyType, getLoansByClient, getLoanPayments,paidWeekly } from "../api/api";
 
 const LoansContext = createContext();
 
@@ -38,7 +38,7 @@ export const LoansProvider = ({ children }) => {
             console.log(response.data);
             setLoans([...loans, response.data]);
         } catch (error) {
-            console.error(error);
+            console.error(error.response.data.message);
         }
     }
 
@@ -79,6 +79,15 @@ export const LoansProvider = ({ children }) => {
         }
     }
 
+    const PayWeekly = async (loanId, body) => {
+        try {
+            const response = await paidWeekly(loanId, body);
+            return response.data;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     return (
         <LoansContext.Provider value={{ 
             loans,
@@ -88,7 +97,9 @@ export const LoansProvider = ({ children }) => {
             updateLoanById,
             getLoansByClientId,
             getLoanPaymentsById,
-            getLoanByType }}>
+            getLoanByType,
+            PayWeekly,
+             }}>
             {children}
         </LoansContext.Provider>
     );

@@ -30,8 +30,12 @@ export default function Dashboard() {
                     <img src={loan} alt="loan" className="w-1/2"/>
                 </Link>
             </div>
+            <div className=" flex gap-4 justify-around mt-6">
+                <Link className=" bg-slate-200 hover:scale-110 cursor-pointer rounded-md w-1/5 flex flex-col justify-center items-center">
+                    Cuentas
+                </Link>
+            </div>
             <div>
-                <h2>mostrar los prestamos que estan en su ultima semana</h2>
                 <h2>Total de prestamos: {loans.length}</h2>
             </div>
         </div>

@@ -1,9 +1,22 @@
 import { DataGrid } from '@mui/x-data-grid';
 import { Paper } from '@mui/material';
 import BotonesPagos from './botonesPagos';
+import {useLoans} from '../context/loansContext';
+import { useEffect } from 'react';
 
 // eslint-disable-next-line react/prop-types
 export default function TablePayments({ payments }) {
+   
+
+    const { PayWeekly } = useLoans();
+    const handlePaid = async (id) => {
+        try {
+            const res = await PayWeekly(id);
+            console.log(res);
+        } catch (error) {
+            console.error(error);
+        }
+    };
     const columns = [
         { field: 'weekNumber', headerName: 'Semana', width: 150 },
         { field: 'dueDate', headerName: 'Fecha de pago', width: 150 },
@@ -13,7 +26,7 @@ export default function TablePayments({ payments }) {
             headerName: 'Acciones',
             width: 200,
             renderCell: (params) => (
-                <BotonesPagos isPaid={params.row.paid} />
+                <BotonesPagos initialIsPaid={params.row.paid} onPaid={handlePaid} id={params.row.id} body={{amountPaid:params.row.amountDue, paymentDate:params.row.dueDate}}  />
             ),
         }
     ];

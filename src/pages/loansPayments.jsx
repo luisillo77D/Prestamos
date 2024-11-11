@@ -1,4 +1,4 @@
-import {getPaymentsbyLoan, paidWeekly} from '../api/api';
+import {getPaymentsbyLoan, } from '../api/api';
 import { useParams } from 'react-router-dom';
 import { useEffect,useState } from 'react';
 import TablePayments from '../components/tablePayments';
@@ -18,15 +18,6 @@ export default function LoansPayments() {
         }
     }
 
-    const payWeekly = async (id) => {
-        try {
-            const response = await paidWeekly(id);
-            console.log(response.data);
-        } catch (error) {
-            console.error(error);
-        }
-    }
-    
     useEffect(() => {
         getPayments(id);
     }, [id]);
