@@ -48,7 +48,6 @@ export default function CuentasPage() {
           <option value="casa">casa</option>
           <option value="velza">velza</option>
           <option value="lara">Automotriz</option>
-          {/* Añade más opciones según los tipos de préstamos disponibles */}
         </select>
       </div>
       <div>

@@ -2,7 +2,6 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Paper } from "@mui/material";
 import BotonesPagos from "./botonesPagos";
 import { useLoans } from "../context/loansContext";
-import { useEffect } from "react";
 
 // eslint-disable-next-line react/prop-types
 export default function TablePayments({ payments }) {
