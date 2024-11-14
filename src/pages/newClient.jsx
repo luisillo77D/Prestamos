@@ -8,7 +8,6 @@ export default function NewClient() {
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
   const [address, setAddress] = useState("");
-  const [phone, setPhone] = useState("");
 
   const handleChange = (e) => {
     const { id, value } = e.target;
