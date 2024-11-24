@@ -13,7 +13,7 @@ export const getLoans = async () => axios.get(`/loans`);
 
 export const getLoan = async (id) => axios.get(`/loans/${id}`);
 
-export const getLoansByClient = async (clientId) => axios.get(`/loans/${clientId}/loans`);
+//export const getLoansByClient = async (clientId) => axios.get(`/loans/${clientId}/loans`);
 
 export const getLoanPayments = async (loanId) => axios.get(`/loans/${loanId}/payments`);
 
@@ -27,3 +27,5 @@ export const updateLoan = async (id, loan) => axios.put(`/loans/${id}`, loan);
 export const getPaymentsbyLoan = async (loanId) => axios.get(`/weeklyPayments/${loanId}`);
 
 export const paidWeekly = async (loanId, body) => axios.put(`/weeklyPayments/${loanId}/pay`, body);
+
+export const getPaymentsExpirated = async () => axios.get(`/loans/payments/latePayments`);

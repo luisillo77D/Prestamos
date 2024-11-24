@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { getLoans, getLoan, createLoan, updateLoan,getLoanbyType, getLoansByClient, getLoanPayments,paidWeekly } from "../api/api";
+import { getLoans, getLoan, createLoan, updateLoan,getLoanbyType, getLoanPayments,paidWeekly,getPaymentsExpirated } from "../api/api";
 
 const LoansContext = createContext();
 
@@ -13,6 +13,8 @@ export const useLoans = () => {
 
 export const LoansProvider = ({ children }) => {
     const [loans, setLoans] = useState([]);
+    const [loading, setLoading] = useState(false);
+
 
     const getLoansList = async () => {
         try {
@@ -52,16 +54,6 @@ export const LoansProvider = ({ children }) => {
         }
     }
 
-    const getLoansByClientId = async (clientId) => {
-        try {
-            const response = await getLoansByClient(clientId);
-            setLoans(response.data);
-            return response.data;
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
     const getLoanPaymentsById = async (loanId) => {
         try {
             const response = await getLoanPayments(loanId);
@@ -89,6 +81,19 @@ export const LoansProvider = ({ children }) => {
         }
     }
 
+    const getPaymentsExpirated2 = async () => {
+        setLoading(true);
+        try {
+            const response = await getPaymentsExpirated({ cache: "no-store" });
+            setLoans(response.data);
+            return response.data;
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setLoading(false);
+        }
+    }
+
     return (
         <LoansContext.Provider value={{ 
             loans,
@@ -96,10 +101,11 @@ export const LoansProvider = ({ children }) => {
             getLoanById, 
             addLoan, 
             updateLoanById,
-            getLoansByClientId,
             getLoanPaymentsById,
             getLoanByType,
             PayWeekly,
+            getPaymentsExpirated2,
+            loading,
              }}>
             {children}
         </LoansContext.Provider>
