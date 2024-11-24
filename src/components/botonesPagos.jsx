@@ -5,8 +5,14 @@ export default function BotonesPagos({ initialIsPaid, onPaid, id, body }) {
   const [isPaid, setIsPaid] = useState(initialIsPaid);
 
   const handlePaid = () => {
-    onPaid(id, body);
-    setIsPaid(true);
+    const confirmed = window.confirm("¿Estás seguro de que deseas realizar el pago?");
+    if (confirmed) {
+      onPaid(id, body);
+      setIsPaid(true);
+      alert("Pago realizado con éxito.");
+    } else {
+      alert("Pago cancelado.");
+    }
   };
 
   return (
